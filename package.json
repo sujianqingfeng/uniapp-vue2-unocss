@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "unocss": "^0.54.1"
+  },
+  "scripts": {
+    "unocss": "unocss --watch"
+  }
+}

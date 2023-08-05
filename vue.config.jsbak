@@ -1,0 +1,10 @@
+const UnoCSS = require('@unocss/webpack').default
+
+console.log('000000',UnoCSS)
+module.exports = {
+	configureWebpack: {
+		plugins: [
+			UnoCSS(),
+		]
+	}
+}

@@ -1,0 +1,14 @@
+<template>
+	<view class="h-100vh flex justify-center items-center">
+		<text class="text-80 color-red">hello unocss</text>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+			}
+		},
+	}
+</script>
