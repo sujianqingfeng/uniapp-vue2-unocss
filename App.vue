@@ -1,7 +1,7 @@
 <script>
 	export default {
 		onLaunch: function() {
-			console.log('App Launch',css)
+			console.log('App Launch')
 		},
 		onShow: function() {
 			console.log('App Show')
@@ -14,4 +14,5 @@
 
 <style>
 	/*每个页面公共css */
+  @import './static/uno.css'
 </style>

@@ -2,18 +2,22 @@ import {defineConfig,presetUno} from 'unocss'
 
 const remRE = /(-?[\.\d]+)rem/g
 
-function remToRpxPreset(options = {}){
-  const {
-    baseFontSize = 4,
-  } = options
-
+function transformUniappPreset(){
   return {
-    name: 'preset-rem-to-rpx',
+    name: 'preset-transform-uniapp',
     postprocess: (util) => {
       util.entries.forEach((i) => {
-        const value = i[1]
-        if (typeof value === 'string' && remRE.test(value))
-          i[1] = value.replace(remRE, (_, p1) => `${p1 * baseFontSize}rpx`)
+        const [,value] = i
+        if (typeof value === 'string' && remRE.test(value)){
+          i[1] = value.replace(remRE, (_, p1) => `${+p1 * 4}rpx`)
+        }
+        if(typeof value === 'string' && ['rgba'].some(x=>value.startsWith(x))){
+          i[1] = value.replace(/,var\(.+\)\)$/, ')').replace('rgba', 'rgb')
+        }
+      })
+      util.entries = util.entries.filter((i)=> {
+        const [key]= i
+        return typeof key === 'string' && !['--un-text-opacity'].some(k=>k===key)
       })
     },
   }
@@ -27,7 +31,9 @@ export default defineConfig({
     },
   },
   presets: [
-    presetUno(),
-    remToRpxPreset(),
+    presetUno({
+      preflight: false
+    }),
+    transformUniappPreset(),
   ]
 })

@@ -1,7 +1,5 @@
 import App from './App'
 
-import './static/uno.css'
-
 // #ifndef VUE3
 import Vue from 'vue'
 import './uni.promisify.adaptor'

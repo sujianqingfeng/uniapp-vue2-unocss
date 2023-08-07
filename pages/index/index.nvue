@@ -1,6 +1,6 @@
 <template>
-	<view class="h-100vh flex justify-center items-center">
-		<text class="text-80 color-red">hello unocss</text>
+	<view class="h-800 flex justify-center items-center">
+		<text class="text-80 color-red opacity-100">hello unocss</text>
 	</view>
 </template>
 
@@ -12,3 +12,5 @@
 		},
 	}
 </script>
+
+<style></style>
